@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 import { inventoryData } from "../Utils/Data";
 
 export const InventoryContext = createContext();
@@ -23,13 +23,18 @@ function Reducer(state, action) {
 
 const InventoryContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(Reducer, initialState);
+	const [filters, setFilters] = useState({
+		department: "All",
+		sortBy: "name",
+		lowStockItem: false,
+	});
 
 	useEffect(() => {
 		console.log(state);
 		localStorage.setItem("InventoryData", JSON.stringify(state.inventoryArr));
 	}, [state]);
 	return (
-		<InventoryContext.Provider value={{ state, dispatch }}>
+		<InventoryContext.Provider value={{ state, dispatch, filters, setFilters }}>
 			{children}
 		</InventoryContext.Provider>
 	);

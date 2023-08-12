@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { InventoryContext } from "../Context/InventoryContext";
 
-const FilterHeader = ({ filters, setFilters }) => {
-	const { state, dispatch } = useContext(InventoryContext);
+const FilterHeader = () => {
+	const { state, dispatch, filters, setFilters } = useContext(InventoryContext);
 	const toast = useToast();
 	const [openAddModel, setOpenAddModel] = useState(false);
 	const [formData, setFormData] = useState({
@@ -155,6 +155,12 @@ const FilterHeader = ({ filters, setFilters }) => {
 									className="border border-black px-2 py-1 w-full rounded-lg cursor-pointer"
 									defaultValue=""
 									required
+									onChange={(e) =>
+										setFormData((prev) => ({
+											...prev,
+											department: e.target.value,
+										}))
+									}
 								>
 									<option disabled value="">
 										Select Department
@@ -234,7 +240,7 @@ const FilterHeader = ({ filters, setFilters }) => {
 									type="number"
 									min="0"
 									name="delivered"
-									value={FormData.delivered}
+									value={formData.delivered}
 									onChange={handleFormChange}
 									required
 								/>

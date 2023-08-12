@@ -1,18 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import FilterHeader from "../Components/FilterHeader";
 import { InventoryContext } from "../Context/InventoryContext";
 import TableRow from "../Components/TableRow";
 
 const ProductList = () => {
-	const [searchParam, setSearchParams] = useSearchParams();
-	const selectedDepartment = searchParam.get("department");
-
-	const [filters, setFilters] = useState({
-		department: selectedDepartment ?? "All",
-		sortBy: "name",
-		lowStockItem: false,
-	});
+	const { filters, setFilters } = useContext(InventoryContext);
 
 	const { state } = useContext(InventoryContext);
 	const { inventoryArr } = state;

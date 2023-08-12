@@ -4,17 +4,19 @@ import { InventoryContext } from "../Context/InventoryContext";
 const Dashboard = () => {
 	const { state } = useContext(InventoryContext);
 	const totalStock = state.inventoryArr.reduce(
-		(acc, curr) => (acc += curr.stock),
+		(acc, curr) => (acc += Number(curr.stock)),
 		0
 	);
 	const totalDeliveredStocks = state.inventoryArr?.reduce(
-		(acc, curr) => (acc += curr.delivered),
+		(acc, curr) => (acc += Number(curr.delivered)),
 		0
 	);
 
 	const lowItemStocks = state.inventoryArr?.filter(
 		(item) => item.stock <= 10
 	).length;
+
+	console.log(totalStock);
 	return (
 		<section>
 			<h1 className="text-2xl md:text-4xl font-bold text-center p-2 py-[50px]">
