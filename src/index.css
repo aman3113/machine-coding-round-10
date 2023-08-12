@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+table {
+	width: 100%;
+}
+
+td,
+th {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+input {
+	border: 1px solid black;
+	padding: 4px 8px;
+	border-radius: 8px;
+	width: 100%;
+}
+
+label p {
+	margin-bottom: 5px;
+}

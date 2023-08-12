@@ -4,9 +4,11 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
 	return (
-		<div className="flex h-screen">
+		<div className="md:flex h-screen">
 			<SideBar />
-			<Outlet />
+			<div className="w-full md:h-screen overflow-y-auto md:w-[80%] p-2">
+				<Outlet />
+			</div>
 		</div>
 	);
 };

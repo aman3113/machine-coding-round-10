@@ -12,6 +12,10 @@ function Reducer(state, action) {
 	const { type, payload } = action;
 
 	switch (type) {
+		case "ADD PRODUCT":
+			return {
+				inventoryArr: [...state.inventoryArr, payload],
+			};
 		default:
 			return state;
 	}
