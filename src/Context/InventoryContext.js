@@ -25,10 +25,8 @@ const InventoryContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(Reducer, initialState);
 
 	useEffect(() => {
-		localStorage.setItem(
-			"InventoryData",
-			JSON.stringify(initialState.inventoryArr)
-		);
+		console.log(state);
+		localStorage.setItem("InventoryData", JSON.stringify(state.inventoryArr));
 	}, [state]);
 	return (
 		<InventoryContext.Provider value={{ state, dispatch }}>
