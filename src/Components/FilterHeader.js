@@ -71,6 +71,7 @@ const FilterHeader = ({ filters, setFilters }) => {
 						department: e.target.value,
 					}))
 				}
+				defaultValue={filters.department ?? "All Department"}
 			>
 				<option className="cursor-pointer bg-gray-800 text-white" value="All">
 					All Departments
@@ -137,9 +138,10 @@ const FilterHeader = ({ filters, setFilters }) => {
 				size="xl"
 				isOpen={openAddModel}
 				onClose={() => setOpenAddModel(false)}
+				scrollBehavior="inside"
 			>
 				<ModalOverlay />
-				<ModalContent>
+				<ModalContent margin="5">
 					<ModalHeader>Add New Product</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody>

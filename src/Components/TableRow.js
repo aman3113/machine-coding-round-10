@@ -15,7 +15,9 @@ const TableRow = ({ item }) => {
 				</Link>
 			</td>
 			<td>
-				<Link to={`/products/${id}`}>{name}</Link>
+				<Link to={`/products/${id}`} className="text-blue-700 underline">
+					{name}
+				</Link>
 			</td>
 			<td>{description}</td>
 			<td>{price}</td>
